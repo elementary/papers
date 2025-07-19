@@ -1,12 +1,12 @@
 diff --git a/shell/src/application.rs b/shell/src/application.rs
-index bda534482..e3c15e55b 100644
+index bda534482..a7de8ad15 100644
 --- a/shell/src/application.rs
 +++ b/shell/src/application.rs
 @@ -38,6 +38,15 @@ mod imp {
                  .expect("failed to load resources");
              gio::resources_register(&resources);
  
-+            // Granite.init() calls Gdk.DisplayManager.get() internally without
++            // granite::init() calls gdk::DisplayManager::get() internally without
 +            // initializing Gtk, which is illegal and causes an intentional
 +            // crash since Gtk 4.17. So, initialize Gtk explicitly here as a
 +            // workaround.
