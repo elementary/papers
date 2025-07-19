@@ -190,6 +190,7 @@
             "config-opts": [
                 "-Dnautilus=false",
                 "-Dthumbnailer=false",
+                "-Dpreviewer=false",
                 "-Ddocumentation=false",
                 "-Dintrospection=disabled"
             ],
@@ -219,6 +220,10 @@
                 {
                     "type": "patch",
                     "path": "granite-init.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "rename-css.patch"
                 }
             ],
             "cleanup": [
