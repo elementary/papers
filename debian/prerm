@@ -2,7 +2,7 @@
 
 set -e
 
-flatpak remove --system --noninteractive org.gnome.Evince//stable || true
+flatpak remove --system --noninteractive org.gnome.Papers//stable || true
 
 #DEBHELPER#
 
