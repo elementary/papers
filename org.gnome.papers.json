@@ -189,8 +189,9 @@
             },
             "config-opts": [
                 "-Dnautilus=false",
-                "-Dthumbnailer=false",
                 "-Dpreviewer=false",
+                "-Dthumbnailer=false",
+                "-Dnautilus=false",
                 "-Ddocumentation=false",
                 "-Dintrospection=disabled"
             ],
