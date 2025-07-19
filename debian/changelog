@@ -1,4 +1,10 @@
-org.gnome.evince (42.2) jammy; urgency=medium
+org.gnome.papers (48.4) noble; urgency=medium
+
+  * New upstream release
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Sat, 19 Jul 2025 20:29:10 +0900
+
+org.gnome.papers (42.2) jammy; urgency=medium
 
   * New upstream release
 
