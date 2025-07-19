@@ -1,6 +1,19 @@
 # papers
 Papers Document Viewer flatpak built against the elementary platform
 
+## Building, Testing, and Installation
+Run `flatpak-builder` to configure the build environment, download dependencies, build, and install
+
+```bash
+flatpak-builder build org.gnome.papers.json --user --install --force-clean --install-deps-from=appcenter --install-deps-from=flathub
+```
+
+Then execute with
+
+```bash
+flatpak run org.gnome.Papers
+```
+
 ## How to generate `generated-sources.json`
 Some code of Papers is written in Rust so it uses Cargo to resolve dependencies of it. However, network access during
 the build process is not recommended in Flatpak.
@@ -18,7 +31,7 @@ the original source code of Papers:
 
 ```
 # The tag name matches with the version of papers in our manifest file
-git clone https://gitlab.gnome.org/GNOME/Incubator/papers.git -b 48.1 --depth=1
+git clone https://gitlab.gnome.org/GNOME/papers.git -b 48.4 --depth=1
 cd papers/
 git apply <path to add-granite.patch>
 cd ../
