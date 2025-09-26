@@ -1,18 +1,18 @@
 diff --git a/Cargo.lock b/Cargo.lock
-index 8e0cd7d2f..c30a96c9c 100644
+index b56566d06..bee57b8d4 100644
 --- a/Cargo.lock
 +++ b/Cargo.lock
-@@ -826,6 +826,37 @@ dependencies = [
+@@ -935,6 +935,37 @@ dependencies = [
   "system-deps",
  ]
  
 +[[package]]
 +name = "granite-rs"
-+version = "2.0.0"
++version = "3.0.0"
 +source = "registry+https://github.com/rust-lang/crates.io-index"
-+checksum = "f025950e055e37c13cc66953fd006087a702fe1f84eada671b9cf40839347063"
++checksum = "583445f6e01a930b829d1a7724f09af98efe8a9e6928c1953e7b7fcf16547db0"
 +dependencies = [
-+ "bitflags",
++ "bitflags 2.9.3",
 + "gdk4",
 + "gio",
 + "glib",
@@ -24,9 +24,9 @@ index 8e0cd7d2f..c30a96c9c 100644
 +
 +[[package]]
 +name = "granite-rs-sys"
-+version = "0.5.0"
++version = "0.6.0"
 +source = "registry+https://github.com/rust-lang/crates.io-index"
-+checksum = "cc51e7dcbcb6f966c169dc3c18651e189b1c5720ba385549345c04e81de8e30a"
++checksum = "06f728c0929dcdfec5d5ea5b61b2b10c4b193cdaf1ec6fd8de7c566982c34340"
 +dependencies = [
 + "gdk4-sys",
 + "gio-sys",
@@ -39,24 +39,24 @@ index 8e0cd7d2f..c30a96c9c 100644
 +
  [[package]]
  name = "graphene-rs"
- version = "0.20.9"
-@@ -1344,6 +1375,7 @@ dependencies = [
-  "env_logger",
+ version = "0.21.1"
+@@ -1615,6 +1646,7 @@ dependencies = [
   "futures",
   "gettext-rs",
+  "git-version",
 + "granite-rs",
   "gtk4",
   "libadwaita",
   "log",
 diff --git a/shell/Cargo.toml b/shell/Cargo.toml
-index fbafc8680..ff94014c2 100644
+index 50262bd35..d9065d487 100644
 --- a/shell/Cargo.toml
 +++ b/shell/Cargo.toml
-@@ -24,6 +24,7 @@ futures = "0.3"
- oo7 = { version = "0.3", optional = true }
+@@ -23,6 +23,7 @@ gettext-rs = { version = "0.7", features = ["gettext-system"] }
+ lru = "0.16"
+ futures = "0.3"
+ git-version = "0.3"
++granite-rs = { version = "3.0.0", package = "granite-rs" }
  
- gtk = { workspace = true, features = ["gnome_45"]}
-+granite = { version = "2.0", package = "granite-rs", features = ["v7_2"] }
- 
- [dependencies.adw]
- package = "libadwaita"
+ [dependencies.oo7]
+ version = "0.4"

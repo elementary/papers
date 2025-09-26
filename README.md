@@ -25,6 +25,7 @@ You'll need:
 
 - git
 - python3-toml
+- python3-tomlkit
 - python3-aiohttp
 - pipx
 
