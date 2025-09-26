@@ -49,14 +49,14 @@ index b56566d06..bee57b8d4 100644
   "libadwaita",
   "log",
 diff --git a/shell/Cargo.toml b/shell/Cargo.toml
-index 50262bd35..d9065d487 100644
+index 50262bd35..c9c0aab2e 100644
 --- a/shell/Cargo.toml
 +++ b/shell/Cargo.toml
 @@ -23,6 +23,7 @@ gettext-rs = { version = "0.7", features = ["gettext-system"] }
  lru = "0.16"
  futures = "0.3"
  git-version = "0.3"
-+granite-rs = { version = "3.0.0", package = "granite-rs" }
++granite = { version = "3.0.0", package = "granite-rs", features = ["v7_2"] }
  
  [dependencies.oo7]
  version = "0.4"

@@ -1,7 +1,7 @@
 {
     "id": "org.gnome.Papers",
     "runtime": "io.elementary.Platform",
-    "runtime-version": "8.2",
+    "runtime-version": "daily",
     "sdk": "io.elementary.Sdk",
     "sdk-extensions": [
         "org.freedesktop.Sdk.Extension.rust-stable"
@@ -41,36 +41,6 @@
         "*.a"
     ],
     "modules": [
-        {
-            "name": "gdk-pixbuf",
-            "buildsystem": "meson",
-            "config-opts": [
-                "-Dothers=enabled",
-                "-Dgtk_doc=false",
-                "-Dman=false",
-                "-Dinstalled_tests=false"
-            ],
-            "cleanup": [
-                "/share/thumbnailers",
-                "/bin"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/gdk-pixbuf/2.42/gdk-pixbuf-2.42.12.tar.xz",
-                    "sha256": "b9505b3445b9a7e48ced34760c3bcb73e966df3ac94c95a148cb669ab748e3c7",
-                    "x-checker-data": {
-                        "type": "gnome",
-                        "name": "gdk-pixbuf",
-                        "stable-only": true
-                    }
-                }
-            ],
-            "post-install": [
-                "mkdir -p /app/lib/gdk-pixbuf-2.0/2.10.0",
-                "gdk-pixbuf-query-loaders /usr/lib/*/gdk-pixbuf-2.0/2.10.0/loaders/*.so /app/lib/gdk-pixbuf-2.0/2.10.0/loaders/*.so > /app/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache"
-            ]
-        },
         {
             "name": "popplerdata",
             "no-autogen": true,
@@ -199,8 +169,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/papers/48/papers-48.4.tar.xz",
-                    "sha256": "f11aa1c544ac211259e230b40c804ae64077339a57bdefa3dbbeb57f9166e3fd",
+                    "url": "https://download.gnome.org/sources/papers/49/papers-49.0.tar.xz",
+                    "sha256": "7a2b4dc405dc1cffdb865e2d9433cb5b74a94c6d141ae51f4146be21a7749a9a",
                     "x-checker-data": {
                         "is-important": true,
                         "type": "gnome",
@@ -209,27 +179,31 @@
                 },
                 "generated-sources.json",
                 {
+                    "type": "patch",
+                    "path": "0001-tiff-Use-valid-rdns-id.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "add-granite.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "granite-init.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "rename-css.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "fix-missing-sidebar-icon.patch"
+                },
+                {
                     "type": "shell",
                     "commands": [
                         "mkdir .cargo",
                         "cp cargo/config .cargo/"
                     ]
-                },
-                {
-                    "type": "patch",
-                    "path": "patches/add-granite.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "patches/granite-init.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "patches/rename-css.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "patches/fix-missing-sidebar-icon.patch"
                 }
             ],
             "cleanup": [

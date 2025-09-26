@@ -1,11 +1,11 @@
 diff --git a/shell/resources/papers.gresource.xml.in b/shell/resources/papers.gresource.xml.in
-index fdafee65e..342b06b48 100644
+index fc959a2f5..807e6106e 100644
 --- a/shell/resources/papers.gresource.xml.in
 +++ b/shell/resources/papers.gresource.xml.in
-@@ -19,7 +19,7 @@
+@@ -5,7 +5,7 @@
    <gresource prefix="/org/gnome/papers">
      <file alias="ui/search-box.ui" compressed="true" preprocess="xml-stripblanks">pps-search-box.ui</file>
-     <file alias="gtk/help-overlay.ui" preprocess="xml-stripblanks">help-overlay.ui</file>
+     <file alias="shortcuts-dialog.ui" preprocess="xml-stripblanks">pps-shortcuts-dialog.ui</file>
 -    <file alias="style.css" compressed="true">papers.css</file>
 +    <file alias="Application.css" compressed="true">papers.css</file>
      <file alias="ui/find-sidebar.ui" compressed="true" preprocess="xml-stripblanks">pps-find-sidebar.ui</file>
