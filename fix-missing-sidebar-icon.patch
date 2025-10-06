@@ -1,0 +1,13 @@
+diff --git a/shell/resources/pps-document-view.blp b/shell/resources/pps-document-view.blp
+index b839b7ce0..3d357d4cf 100644
+--- a/shell/resources/pps-document-view.blp
++++ b/shell/resources/pps-document-view.blp
+@@ -192,7 +192,7 @@ template $PpsDocumentView: Adw.BreakpointBin {
+ 
+         [start]
+         ToggleButton sidebar_button {
+-          icon-name: "sidebar-show-symbolic";
++          icon-name: "view-sidebar-start-symbolic";
+           action-name: "doc.show-sidebar";
+           tooltip-text: _("Toggle Sidebar");
+         }

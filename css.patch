@@ -1,0 +1,58 @@
+diff --git a/shell/resources/papers.css b/shell/resources/papers.css
+index b4effb5cc..ba491a2a8 100644
+--- a/shell/resources/papers.css
++++ b/shell/resources/papers.css
+@@ -1,3 +1,53 @@
++:root {
++  --window-bg-color: @bg_color;
++  --window-fg-color: @fg_color;
++  --accent-color: @accent_color;
++  --shade-color: alpha(@fg_color, 0.15);
++  --yellow-4: @BANANA_500;
++}
++
++.sidebar-pane,
++.navigation-sidebar {
++  background: @insensitive_bg_color;
++}
++
++.sidebar-pane:dir(ltr) {
++  border-right: 1px solid @menu_separator;
++}
++
++.sidebar-pane:dir(rtl) {
++  border-left: 1px solid @menu_separator;
++}
++
++separator.spacer {
++  border-color: transparent;
++}
++
++/* TODO Remove when https://github.com/elementary/granite/issues/897 is fixed */
++button.osd {
++  background: @bg_color;
++  border: transparent;
++  box-shadow:
++    inset 0 -1px 0 0 rgba(255, 255, 255, 0.2),
++    inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
++    inset 1px 0 0 0 rgba(255, 255, 255, 0.07),
++    inset -1px 0 0 0 rgba(255, 255, 255, 0.07),
++    0 0 0 1px rgba(0, 0, 0, 0.1),
++    0 3px 4px rgba(0, 0, 0, 0.15),
++    0 3px 3px -3px rgba(0, 0, 0, 0.35);
++  color: @text_color;
++  min-height: 2em;
++  min-width: 2em;
++}
++
++button.osd:active {
++  background: @insensitive_bg_color;
++}
++
++separator.spacer {
++  border-color: transparent;
++}
++
+ image.symbolic-circular {
+   background-color: color-mix(in srgb, currentColor 8%, transparent);
+   min-width: 32px;
