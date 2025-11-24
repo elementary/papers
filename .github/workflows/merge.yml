@@ -27,7 +27,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Install Rust SDK extension
         run: |
@@ -35,7 +35,7 @@ jobs:
           flatpak install -y --arch=${{ matrix.configuration.arch }} org.freedesktop.Sdk.Extension.rust-stable//25.08
 
       - name: Build
-        uses: flatpak/flatpak-github-actions/flatpak-builder@v6.5
+        uses: flatpak/flatpak-github-actions/flatpak-builder@v6.6
         with:
           bundle: papers.flatpak
           manifest-path: org.gnome.papers.json
@@ -47,7 +47,7 @@ jobs:
           arch: ${{ matrix.configuration.arch }}
 
       - name: Deploy
-        uses: flatpak/flatpak-github-actions/flat-manager@v6.5
+        uses: flatpak/flatpak-github-actions/flat-manager@v6.6
         with:
           repository: appcenter
           flat-manager-url: https://flatpak-api.elementary.io
