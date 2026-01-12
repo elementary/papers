@@ -1,0 +1,20 @@
+diff --git a/shell/src/application.rs b/shell/src/application.rs
+index bda534482..a7de8ad15 100644
+--- a/shell/src/application.rs
++++ b/shell/src/application.rs
+@@ -38,6 +38,15 @@ mod imp {
+                 .expect("failed to load resources");
+             gio::resources_register(&resources);
+ 
++            // granite::init() calls gdk::DisplayManager::get() internally without
++            // initializing Gtk, which is illegal and causes an intentional
++            // crash since Gtk 4.17. So, initialize Gtk explicitly here as a
++            // workaround.
++            // TODO: Remove this when https://github.com/elementary/granite/pull/893 is released
++            let _ = gtk::init();
++            // Apply elementary stylesheet instead of default Adwaita stylesheet
++            granite::init();
++
+             self.parent_startup();
+             papers_document::init();
+ 
