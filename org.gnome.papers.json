@@ -169,8 +169,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/papers/49/papers-49.0.tar.xz",
-                    "sha256": "7a2b4dc405dc1cffdb865e2d9433cb5b74a94c6d141ae51f4146be21a7749a9a",
+                    "url": "https://download.gnome.org/sources/papers/49/papers-49.3.tar.xz",
+                    "sha256": "76975d9d1fd2f88c368fec8c31f0e56fa9dd93a1b8e85faceaa403c59a55aa90",
                     "x-checker-data": {
                         "is-important": true,
                         "type": "gnome",
@@ -178,10 +178,6 @@
                     }
                 },
                 "generated-sources.json",
-                {
-                    "type": "patch",
-                    "path": "0001-tiff-Use-valid-rdns-id.patch"
-                },
                 {
                     "type": "patch",
                     "path": "add-granite.patch"
