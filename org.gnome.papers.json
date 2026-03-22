@@ -81,8 +81,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-26.01.0.tar.xz",
-                    "sha256": "1cb944a4b88847f5fb6551683bc799db59f04990f5d8be07aba2acbf38601089",
+                    "url": "https://poppler.freedesktop.org/poppler-26.03.0.tar.xz",
+                    "sha256": "8b3c5e2a9f2ab4c3ec5029f28af1b433c6b71f0d1e7b3997aa561cf1c0ca4ebe",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 3686,
@@ -135,24 +135,6 @@
             ]
         },
         {
-            "name": "libgxps",
-            "buildsystem": "meson",
-            "config-opts": [
-                "-Denable-test=false",
-                "-Ddisable-introspection=true"
-            ],
-            "cleanup": [
-                "/bin"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/libgxps/0.3/libgxps-0.3.2.tar.xz",
-                    "sha256": "6d27867256a35ccf9b69253eb2a88a32baca3b97d5f4ef7f82e3667fa435251c"
-                }
-            ]
-        },
-        {
             "name": "papers",
             "buildsystem": "meson",
             "build-options": {
@@ -169,8 +151,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/papers/49/papers-49.3.tar.xz",
-                    "sha256": "76975d9d1fd2f88c368fec8c31f0e56fa9dd93a1b8e85faceaa403c59a55aa90",
+                    "url": "https://download.gnome.org/sources/papers/49/papers-49.5.tar.xz",
+                    "sha256": "6e2a7a5870f7e10da5804cab4784b2f6bb55f97a4045ce5a64c36796bf2ff4bd",
                     "x-checker-data": {
                         "is-important": true,
                         "type": "gnome",
