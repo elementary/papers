@@ -162,23 +162,23 @@
                 "generated-sources.json",
                 {
                     "type": "patch",
-                    "path": "add-granite.patch"
+                    "path": "patches/add-granite.patch"
                 },
                 {
                     "type": "patch",
-                    "path": "css.patch"
+                    "path": "patches/css.patch"
                 },
                 {
                     "type": "patch",
-                    "path": "granite-init.patch"
+                    "path": "patches/granite-init.patch"
                 },
                 {
                     "type": "patch",
-                    "path": "rename-css.patch"
+                    "path": "patches/rename-css.patch"
                 },
                 {
                     "type": "patch",
-                    "path": "fix-missing-sidebar-icon.patch"
+                    "path": "patches/fix-missing-sidebar-icon.patch"
                 },
                 {
                     "type": "shell",
