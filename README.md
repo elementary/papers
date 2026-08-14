@@ -24,17 +24,14 @@ as modules at the beginning of the build process.
 You'll need:
 
 - git
-- python3-toml
-- python3-tomlkit
-- python3-aiohttp
-- pipx
+- uv
 
-First prepare the Cargo.lock of Papers. We patch Cargo.lock to add granite, so we need to apply our patch against
-the original source code of Papers:
+Then, prepare Cargo.lock of Papers. We patch Cargo.lock to add granite, so we need to apply our patch
+against the original source code of Papers:
 
 ```
 # The tag name matches with the version of papers in our manifest file
-git clone https://gitlab.gnome.org/GNOME/papers.git -b 48.4 --depth=1
+git clone https://gitlab.gnome.org/GNOME/papers.git -b 50.2 --depth=1
 cd papers/
 git apply <path to add-granite.patch>
 cd ../
@@ -43,10 +40,5 @@ cd ../
 Now, we can use flatpak-cargo-generator to generate `generated-sources.json`:
 
 ```
-git clone https://github.com/flatpak/flatpak-builder-tools.git --depth=1
-cd flatpak-builder-tools/cargo/
-pipx install poetry
-exec $SHELL -l
-poetry env activate
-python3 ./flatpak-cargo-generator.py ../../papers/Cargo.lock -o generated-sources.json
+uv run ./flatpak-builder-tools/cargo/flatpak-cargo-generator.py papers/Cargo.lock
 ```
