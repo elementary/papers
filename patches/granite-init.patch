@@ -1,0 +1,17 @@
+diff --git a/shell/src/application.rs b/shell/src/application.rs
+index 34943c3ac..1355e088c 100644
+--- a/shell/src/application.rs
++++ b/shell/src/application.rs
+@@ -40,6 +40,12 @@ mod imp {
+                 .expect("failed to load resources");
+             gio::resources_register(&resources);
+ 
++            // granite-rs requires GTK being initialized before granite::init()
++            // Actually self.parent_startup() calls adw::init() which calls gtk::init() if GTK is never initialized yet
++            // but Granite must be initialized before adw::init(), so we need to explicitly call it anyways
++            let _ = gtk::init();
++            granite::init();
++
+             self.parent_startup();
+             papers_document::init();
+ 

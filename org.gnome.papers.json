@@ -1,0 +1,209 @@
+{
+    "id": "org.gnome.Papers",
+    "runtime": "io.elementary.Platform",
+    "runtime-version": "9",
+    "sdk": "io.elementary.Sdk",
+    "sdk-extensions": [
+        "org.freedesktop.Sdk.Extension.rust-stable"
+    ],
+    "command": "papers",
+    "copy-icon": true,
+    "finish-args": [
+        "--share=ipc",
+        "--socket=fallback-x11",
+        "--device=dri",
+        "--socket=wayland",
+        "--socket=pulseaudio",
+        "--talk-name=org.gtk.vfs.*",
+        "--filesystem=home:ro",
+        "--filesystem=/media:ro",
+        "--filesystem=/run/media:ro",
+        "--filesystem=xdg-run/gvfsd",
+        "--filesystem=xdg-run/gvfs"
+    ],
+    "build-options": {
+        "append-path": "/usr/lib/sdk/rust-stable/bin",
+        "env": {
+            "V": "1"
+        },
+        "libdir": "/app/lib"
+    },
+    "cleanup": [
+        "/include",
+        "/lib/pkgconfig",
+        "/share/pkgconfig",
+        "/share/aclocal",
+        "/man",
+        "/share/man",
+        "/share/gtk-doc",
+        "/share/gir-1.0",
+        "/share/vala",
+        "*.la",
+        "*.a"
+    ],
+    "modules": [
+        {
+            "name": "popplerdata",
+            "no-autogen": true,
+            "make-install-args": [
+                "prefix=/app"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://poppler.freedesktop.org/poppler-data-0.4.12.tar.gz",
+                    "sha256": "c835b640a40ce357e1b83666aabd95edffa24ddddd49b8daff63adb851cdab74",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 3687,
+                        "url-template": "https://poppler.freedesktop.org/poppler-data-$version.tar.gz"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "poppler",
+            "buildsystem": "cmake-ninja",
+            "config-opts": [
+                "-DCMAKE_INSTALL_LIBDIR=/app/lib",
+                "-DCMAKE_INSTALL_INCLUDEDIR=/app/include",
+                "-DBUILD_GTK_TESTS=OFF",
+                "-DBUILD_CPP_TESTS=OFF",
+                "-DENABLE_CPP=OFF",
+                "-DENABLE_BOOST=OFF",
+                "-DENABLE_GOBJECT_INTROSPECTION=OFF",
+                "-DENABLE_LIBOPENJPEG=openjpeg2",
+                "-DENABLE_QT5=OFF",
+                "-DENABLE_QT6=OFF"
+            ],
+            "cleanup": [
+                "/bin"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://poppler.freedesktop.org/poppler-26.08.0.tar.xz",
+                    "sha256": "dc906e68cea698109706ac6aa3d2c9d4512fcfcac42d90b8afcda486d1b9abd0",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 3686,
+                        "url-template": "https://poppler.freedesktop.org/poppler-$version.tar.xz"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "exempi",
+            "config-opts": [
+                "--disable-unittest",
+                "--disable-samples"
+            ],
+            "cleanup": [
+                "/bin"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://libopenraw.freedesktop.org/download/exempi-2.6.6.tar.xz",
+                    "sha256": "900fb9957be2095c78e5111b99c49378adac58161a358f52f93c55126f34eb8f",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 767,
+                        "url-template": "https://libopenraw.freedesktop.org/download/exempi-$version.tar.xz"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "djvulibre",
+            "config-opts": [
+                "--disable-desktopfiles"
+            ],
+            "cleanup": [
+                "/bin"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://downloads.sourceforge.net/project/djvu/DjVuLibre/3.5.30/djvulibre-3.5.30.tar.gz",
+                    "sha256": "ee5e457d4cfebe566f94b99e5e3d3cc7f5c79ddb741c2ac2ba2e456f00329644",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 10159,
+                        "url-template": "https://downloads.sourceforge.net/project/djvu/DjVuLibre/$version/djvulibre-$version.tar.gz"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "papers",
+            "buildsystem": "meson",
+            "build-options": {
+                "libdir": "/app/lib"
+            },
+            "config-opts": [
+                "-Dnautilus=false",
+                "-Dpreviewer=false",
+                "-Dthumbnailer=false",
+                "-Ddocumentation=false",
+                "-Dintrospection=disabled"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/papers/51/papers-51.beta.tar.xz",
+                    "sha256": "8b19c974f576f72867fc89c6796c6c711eef58976e8c6684e008774aa468f614",
+                    "x-checker-data": {
+                        "is-important": true,
+                        "type": "gnome",
+                        "name": "papers"
+                    }
+                },
+                "generated-sources.json",
+                {
+                    "type": "patch",
+                    "path": "patches/add-granite.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/css.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/granite-init.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/rename-css.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/fix-missing-sidebar-icon.patch"
+                },
+                {
+                    "type": "shell",
+                    "commands": [
+                        "mkdir .cargo",
+                        "cp cargo/config .cargo/"
+                    ]
+                }
+            ],
+            "cleanup": [
+                "org.gnome.Papers.svg"
+            ],
+            "post-install": [
+                "for help_locale_dir in /app/share/help/??*; do mv $help_locale_dir /app/share/locale/${help_locale_dir##*/}/help; ln -s /app/share/locale/${help_locale_dir##*/}/help $help_locale_dir; done"
+            ]
+        },
+        {
+            "name": "customizations",
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "dir",
+                    "path": "."
+                }
+            ]
+        }
+    ]
+}
