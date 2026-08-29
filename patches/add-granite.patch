@@ -1,16 +1,16 @@
 diff --git a/Cargo.lock b/Cargo.lock
-index 614ec004f..017eae8b8 100644
+index 23ee5cc0a..7e17b9fd4 100644
 --- a/Cargo.lock
 +++ b/Cargo.lock
-@@ -994,6 +994,39 @@ dependencies = [
+@@ -1279,6 +1279,39 @@ dependencies = [
   "system-deps",
  ]
  
 +[[package]]
 +name = "granite-rs"
-+version = "3.2.0"
++version = "3.3.0"
 +source = "registry+https://github.com/rust-lang/crates.io-index"
-+checksum = "f889fe5de6318ae12784fd1d175560f91924b7e46dd6694791da44124307745f"
++checksum = "b82ef083f826a39bbdd340fcd2f2d3f50e68d517b80a0a550dafdca6c568bccd"
 +dependencies = [
 + "bitflags",
 + "gdk4",
@@ -25,9 +25,9 @@ index 614ec004f..017eae8b8 100644
 +
 +[[package]]
 +name = "granite-rs-sys"
-+version = "0.8.0"
++version = "0.9.0"
 +source = "registry+https://github.com/rust-lang/crates.io-index"
-+checksum = "3a4a2593e9ed820b9fb07cb08bdc21de34bdc45f4d55263b698a4b0b4d2f4b05"
++checksum = "9d8f7a9ec9d02c02cea5803e28d0b7be55607b8e78828146320726cd147a4d3d"
 +dependencies = [
 + "gdk4-sys",
 + "gio-sys",
@@ -41,24 +41,24 @@ index 614ec004f..017eae8b8 100644
 +
  [[package]]
  name = "graphene-rs"
- version = "0.21.5"
-@@ -1751,6 +1784,7 @@ dependencies = [
-  "geo-types",
+ version = "0.22.0"
+@@ -2138,6 +2171,7 @@ dependencies = [
+  "futures",
   "gettext-rs",
   "git-version",
 + "granite-rs",
   "gtk4",
-  "ink-stroke-modeler-rs",
-  "libadwaita",
+  "image",
+  "imageproc",
 diff --git a/shell/Cargo.toml b/shell/Cargo.toml
-index 6b2c71778..4235492bf 100644
+index ee4fa870a..42a12c32f 100644
 --- a/shell/Cargo.toml
 +++ b/shell/Cargo.toml
-@@ -23,6 +23,7 @@ gettext-rs.workspace = true
+@@ -27,6 +27,7 @@ chrono.workspace = true
  lru = "0.16"
  futures = "0.3"
  git-version = "0.3"
-+granite = { version = "3.2.0", package = "granite-rs", features = ["v7_8"] }
++granite = { version = "3.3.0", package = "granite-rs", features = ["v7_8"] }
  formatx = "0.2"
  ink-stroke-modeler-rs = { version = "0.1" }
- geo = { version = "0.30", default-features = false }
+ image.workspace = true

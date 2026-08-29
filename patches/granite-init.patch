@@ -1,5 +1,5 @@
 diff --git a/shell/src/application.rs b/shell/src/application.rs
-index 061a8ab99..4a8d7005f 100644
+index 34943c3ac..1355e088c 100644
 --- a/shell/src/application.rs
 +++ b/shell/src/application.rs
 @@ -40,6 +40,12 @@ mod imp {

@@ -151,8 +151,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/papers/50/papers-50.2.tar.xz",
-                    "sha256": "ae1bdcf1cd47cb50c9d84765784607f81c72df17dd6e6ad933fea14173d2b9f4",
+                    "url": "https://download.gnome.org/sources/papers/51/papers-51.beta.tar.xz",
+                    "sha256": "8b19c974f576f72867fc89c6796c6c711eef58976e8c6684e008774aa468f614",
                     "x-checker-data": {
                         "is-important": true,
                         "type": "gnome",
