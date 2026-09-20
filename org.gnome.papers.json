@@ -1,7 +1,7 @@
 {
     "id": "org.gnome.Papers",
     "runtime": "io.elementary.Platform",
-    "runtime-version": "9",
+    "runtime-version": "daily",
     "sdk": "io.elementary.Sdk",
     "sdk-extensions": [
         "org.freedesktop.Sdk.Extension.rust-stable"
